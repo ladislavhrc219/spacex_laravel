@@ -1,22 +1,44 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
-// use Illuminate\Support\Facades\Request;
-use App\Http\Controllers\SpaceXflights;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
+// use App\Http\Controllers\SpaceXflights;
+// use App\Http\Controllers\FlightsController;
+// use App\Http\Controllers\LaunchesController;
+
+// use App\Http\Controllers\LaunchesController;
+
+
+// Route::get('/', [LaunchesController::class, 'index']);
+Route::get('/', 'App\Http\Controllers\LaunchesController@index');
+
+Route::get('/launches/{launch}', 'LaunchesController@show')->name('launches.show');
+
+
+// copied
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+
+
+// use App\Http\Controllers\HomeController;
+ 
+// Route::get('/home', [HomeController::class, 'index']);
+// or
+// Route::get('/home', 'App\Http\Controllers\HomeController@index');
+
+
+// Route::view('/', 'index');
+// Route::view('/flight', 'show');
+
+
+// This works too
 // Route::get('/', function () {
-//     return view('view');
+//     return view('welcome');
 // });
-Route::get('/flights', [SpaceXflights::class, 'index']);
+
+
+
+// Route::get('/', 'FlightsController@index')->name('flights.index');
+// Route::get('/flights/{movie}', 'FlightsController@show')->name('movies.show');
+// Route::get('/flights/{flight}', [FlightsController::class, 'index']);
 
 // Route::
